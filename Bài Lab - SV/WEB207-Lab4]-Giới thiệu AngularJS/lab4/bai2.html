@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <div class="abc">
+            <h2>Bài 2.a</h2>
+            <p ng-repeat="t in nhantu">
+                {{$index +1}} .{{t}} <hr>
+            </p>
+        </div>
+       
+        <hr>
+        <h2>Bài 2.b</h2>
+        <table class="table table-bordered col-10 mx-auto mt-5">
+            <tr ng-repeat="u in users">
+                <td>{{u.username}}</td>
+                <td>{{u.password}}</td>
+                <td>{{u.fullname}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.gender}}</td>
+              
+                <td>{{u.birthday}}</td>
+                <td>{{u.schoolfee}}</td>
+                <td>{{u.marks}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", myfunc);
+        function myfunc($scope) {
+            $scope.nhantu = ["Nhường Nhịn ", "Kiêm Tốn ", "Trọng Người", "Thương Vật"];
+            $scope.users=[
+             {
+        "username": "username",
+        "password": "password",
+        "fullname": "fullname",
+        "email": "email",
+        "gender": "gender",
+        "birthday": "birthday",
+        "schoolfee": "schoolfee",
+        "marks": "marks"
+    },
+    {
+        "username": "teonv",
+        "password": "iloveyou",
+        "fullname": "Nguyễn Văn Tèo",
+        "email": "teonv@fpt.edu.vn",
+        "gender": "true",
+        "birthday": "1995-12-21",
+        "schoolfee": "1500000",
+        "marks": "0"
+    },
+    {
+        "username": "pheonv",
+        "password": "iloveyou",
+        "fullname": "Nguyễn Văn Chí Phèo",
+        "email": "pheonv@fpt.edu.vn",
+        "gender": "true",
+        "birthday": "1985-10-11",
+        "schoolfee": "2500000",
+        "marks": "0"
+    },
+    {
+        "username": "nopt",
+        "password": "iloveyou",
+        "fullname": "Phạm Thị Nở",
+        "email": "nopt@fpt.edu.vn",
+        "gender": "false",
+        "birthday": "1993-05-15",
+        "schoolfee": "2000000",
+        "marks": "0"
+    }
+
+];
+
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+<style>
+   
+    .abc{
+        background-color: rgb(229, 243, 232);
+        width: 200px;
+        
+        margin-left: 600px;
+        margin-top: 30px;
+    
+    }
+    
+    tr
+    {
+        background-color: rgb(236, 214, 193);
+    }
+</style>

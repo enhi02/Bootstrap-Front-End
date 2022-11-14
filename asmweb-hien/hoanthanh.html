@@ -1,0 +1,70 @@
+<header class="masthead pt-5 h-auto pb-5">
+    <div class="row pt-5 mt-5">
+        <article class="col-sm-8 me-3 pe-5 text-light border-end ps-5 mt-4" ng-init="myda">
+            <div class="card">
+                <div class="card-header bg-info">
+                    <div class="row justify-content-between">
+                        <i class="bi bi-list text-warning fs-5 col-lg-10"><strong class="fs-5">{{name}}</strong></i>
+
+                    </div>
+                </div>
+                <div class="card-body bg-light justify-content-center text-center text-primary">
+                    <div class="row justify-content-center fs-4">
+                        <p class="col-lg-3 text-end">Điểm của bạn : </p>
+                        <span class="col-lg-3 text-start fw-bold">
+                        <span  class="text-warning">{{diemtong}}</span> / <span class="text-success">10</span></span>
+                    </div>
+                    <div class="row justify-content-center fs-4">
+                        <p class="col-lg-3 text-end">Số câu đúng : </p>
+                        <span class="col-lg-3 text-start fw-bold">
+                        <span  class="text-warning">{{socaudatduoc}}</span> / <span class="text-success">{{maxtn}}</span></span>
+                    </div>
+                    <div class="row justify-content-center fs-4">
+                        <p class="col-lg-4 text-end">Thời gian còn lại : </p>
+                        <span class="col-lg-3 text-start fw-bold">
+                        <span  class="text-warning">{{countDown * 1000 | date:'mm:ss'}}</span> / <span class="text-success">{{time * 1000 | date:'mm:ss'}}</span></span>
+                    </div>
+                    <!-- <div class="row justify-content-center fs-4 ">
+                        <img ng-if="socaudatduoc >= 3" id="bieucam" class="col-lg-3" src="https://i.pinimg.com/originals/99/f8/b6/99f8b6e4096c575a8760091de8d1a6b6.gif" height="200" alt="">
+                        <img ng-if="socaudatduoc >= 2 && socaudatduoc < 3" id="bieucam" class="col-lg-3" src=" https://1.bp.blogspot.com/-8NvxiGy8wk0/X1BCz5ZT2rI/AAAAAABHiog/YxHNl7Kbn-cJsbwb0KU1BsYOoqeD8blrACLcBGAsYHQ/s352/AS0007206_00.gif" height="200" alt="">
+                        <img ng-if="socaudatduoc <= 1" id="bieucam" class="col-lg-3" src="https://c.tenor.com/iasB1Bq9Qo0AAAAC/doraemon-silly.gif" height="200" alt="">
+                    </div> -->
+                </div>
+                <div class="card-footer text-success bg-primary ps-5"> <strong class="float-end pe-5">
+                        <a ng-click="reset()" href="#!tracnghiem/{{idtl}}/{{nametl}}" class="btn btn-warning p-2 ps-4 pe-4">Làm lại</a>
+                    </strong>
+                </div>
+            </div>
+            <nav aria-label="Page navigation example" class="offset-5 mt-5">
+                <ul class="pagination ">
+                    <li style="cursor: pointer;" class="page-item {{disdau}}">
+                        <a ng-click="dau()" class="page-link bg-success ps-4 pe-4" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li style="cursor: pointer;" class="page-item {{disdau}}"><a ng-click="previous()"
+                            class="page-link bg-warning ps-4 pe-4"><i class="bi bi-caret-left"></i></a>
+                    </li>
+                    <li style="cursor: pointer;" class="page-item {{discuoi}}"><a ng-click="next()"
+                            class="page-link bg-warning ps-4 pe-4"><i class="bi bi-caret-right"></i></a>
+                    </li>
+                    <li style="cursor: pointer;" class="page-item {{discuoi}}">
+                        <a class="page-link bg-success ps-4 pe-4" ng-click="cuoi()" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+
+        </article>
+        <aside ng-include="'viewcacmon.html'" ng-controller="dsmonhoc" class="col-md-3 ms-5 mt-4">
+
+        </aside>
+        <div class="fb-like ms-4 mt-5" data-colorscheme="dark"
+            data-href="https://www.facebook.com/P%E1%BB%9D-Rom-113125644156959" data-width="" data-layout="standard"
+            data-action="like" data-size="large" data-share="true"></div>
+    </div>
+</header>

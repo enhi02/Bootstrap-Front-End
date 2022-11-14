@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", myfunc);
+    function myfunc($scope) {
+        
+        $scope.products=[
+
+    {
+    "productId": 3,
+    "productName": "Hammer",
+    "productCode": "TBX-0048",
+    "releaseDate": "May 21, 2016",
+    "description": "Curved claw steel hammer",
+    "price": 8.9,
+    "starRating": 4.8,
+    "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
+    },
+    
+    ];
+
+
+    }
+</script>
+<body ng-app="myapp">
+
+    <div class="container" ng-controller="myctrl">
+        <div class="container">
+            <div class="card" >
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Sản phẩm {{products[2].productId}}</strong></h5>
+                  <div class="row">
+                    <div class="col-6">
+                        <p >Tên sản phẩm: {{products[2].productName}}</p>
+                        <p >Mã sản phẩm: {{products[2].productCode}}</p>
+                        <p >Ngày sản xuất: {{products[2].releaseDate}}</p>
+                        <p >Thông tin: {{products[2].description}}</p>
+                        <p> Giá sản phẩm: <span class="text-red">${{products[2].price}}</span></p>
+                        <p >Điểm đánh giá: {{products[2].starRating}}</p>
+                    </div>
+                    <div class="col-3 ml-9">
+                        <div class="panel panel-default">
+                            <div class="panel-body" *ngFor="let item of setionimgview">
+                                <img src="{{products[2].imageUrl}}"  alt="..."> <!--class="img-thumbnail rounded-circle shadow"-->
+                            </div>
+                           
+                          </div>
+                       
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+           </div>
+        <br>
+        <footer class="page-footer font-small green">
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+            </div>
+        </footer>
+    </div>
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", myfunc);
+    function myfunc($scope) {
+        $scope.nhantu = ["Nhường Nhịn ", "Kiêm Tốn ", "Trọng Người", "Thương Vật"];
+        $scope.products=[
+{
+"productId": 1,
+"productName": "Leaf Rake",
+"productCode": "GDN-0011",
+"releaseDate": new Date(),
+"description": "Leaf rake with 48-inch wooden handle.",
+"price": 19.95,
+"starRating": 3.2,
+"imageUrl": "https://orgnicfood.vn/image/catalog/Anhblog/rau-cu-qua-co-chat-gi-1.jpg"
+},
+{
+"productId": 2,
+"productName": "Garden Cart",
+"productCode": "GDN-0023",
+"releaseDate":  new Date(),
+"description": "15 gallon capacity rolling garden cart",
+"price": 32.99,
+"starRating": 4.2,
+"imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
+},
+{
+"productId": 3,
+"productName": "Hammer",
+"productCode": "TBX-0048",
+"releaseDate": "May 21, 2016",
+"description": "Curved claw steel hammer",
+"price": 8.9,
+"starRating": 4.8,
+"imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
+},
+{
+"productId": 4,
+"productName": "Saw",
+"productCode": "TBX-0022",
+"releaseDate": "May 15, 2016",
+"description": "15-inch steel blade hand saw",
+"price": 11.55,
+"starRating": 3.7,
+"imageUrl": "http://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
+},
+{
+"productId": 5,
+"productName": "Video Game Controller",
+"productCode": "GMG-0042",
+"releaseDate": "October 15, 2015",
+"description": "Standard two-button video game controller",
+"price": 35.95,
+"starRating": 4.6,
+"imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
+}
+];
+
+
+    }
+</script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+</html>

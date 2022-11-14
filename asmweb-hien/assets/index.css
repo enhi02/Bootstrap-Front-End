@@ -1,0 +1,42 @@
+header{
+    height: 200px; background-color: mediumblue;  
+    position: relative;
+  }
+  .shopping-mall{
+      position: absolute;
+      bottom: 20px; left: 10px;
+      font-variant: small-caps;
+  }
+  .shopping-mall>h1{
+      font-family: Impact;
+      font-size: 50px;
+      color: white;
+      letter-spacing: 0.3px;
+      text-shadow: 2px 2px 2px black;
+      border-bottom: 1px dotted grey;
+      padding-bottom: 0;
+      margin: 0;
+  }
+  .shopping-mall>h5{
+      margin-top: 5px;
+      letter-spacing: 0.5px;
+  }
+  nav.row{
+      height: 80px; background-color: #180b02;
+  }
+  footer{
+      height: 50px; background-color: #00BFFF;
+  }
+  
+  #color{
+      background-color: green;
+  }
+  .nav-link{
+      padding: 20px;
+      margin-left: 20px;
+      color: red;
+      font-size: 20px;
+  }
+  /* #text{
+      margin-left: 50px;
+  } */

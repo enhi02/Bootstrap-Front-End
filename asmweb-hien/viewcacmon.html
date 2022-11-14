@@ -1,0 +1,23 @@
+
+
+    <div class="card ml-1 mr-1  ">
+
+        <div class="card-header bg-primary">
+            <i class="bi bi-receipt-cutoff"></i>
+            DANH MỤC MÔN HỌC
+        </div>
+        <div class="card-body p-0">
+            <div class="card-body p-0">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" ng-repeat="mh in cacmonhoc| orderBy:'Name'"><a
+                            href="#!tracnghiem/{{mh.Id}}/{{mh.Name}}">
+                            {{mh.Name|uppercase}}
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        &nbsp;
+

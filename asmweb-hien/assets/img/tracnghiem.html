@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/assets/index.css">
+    <script src="monhoc.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body ng-app='myapp'>
+    <h3 ng-model="tenMH">{{tenMH}}</h3>
+    <div class="card" ng-repeat="ch in caccauhoi |limitTo:pageSize:start">
+        <div class="card-header bg-warning">{{ch.Text}}</div>
+        <div class="card-body">
+            <P class="card-text" ng-repeat="pa in ch.Answers">
+                <input type="radio" name="pa" value="{{pa.Id}}" ng-click="Ktra(ch.Answers,pa.AnswerId)">{{pa.Text}}
+            </P>
+            <label class="form-check-label">{{p.Text}}</label>
+        </div>
+        <div class="card-footer text-muted bg-danger"><b style="color: black;">Điểm:{{diem}}</b></div>
+    </div>
+    <nav aria-label="Page navigation example" class="offset-5 mt-5">
+        <ul class="pagination">
+
+            <li class="page-item"><a class="page-link bg-dark" href="" ng-click="prev1()">Frevious</a></li>
+            <li class="page-item"><a class="page-link bg-dark" href="" ng-click="first1()">First</a></li>
+            <li class="page-item"><a class="page-link bg-dark" href="" ng-click="last1()">Last</a></li>
+            <li class="page-item"><a class="page-link bg-dark" href="" ng-click="next1()">Next</a></li>
+
+        </ul>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.0/angular-route.min.js"></script>
+</body>
+<script>
+    var app = angular.module('myapp', []);
+    app.controller('myapp', function ($scope, $inteval) {
+        $scope.time = new Date();
+        $inteval(function () {
+            $scope.time = new Date();
+        }, 1000)
+    });
+    var app = angular.module("myapp", ["ngRoute"]);
+    app.controller("myapp", myfunc);
+    app.config(function ($routeProvider) {
+        $routeProvider
+            .when("/gioithieu", { templateUrl: "gioithieu.html" })
+            .when("/lienhe", { templateUrl: "lienhe.html" })
+            .when("/dangki", { templateUrl: "dangki.html" })
+            .when("/login", { templateUrl: "login.html" })
+            .when("/changePW", { templateUrl: "fogotPass.html" })
+            .when("/hoidap", { templateUrl: "hoidap.html" })
+            
+            .when("/tracnghiem/:idMH/:tenMH", { templateUrl: "tracnghiem.html", controller: "tnctrl" })
+
+    });
+    
+</script>
+
+</html>

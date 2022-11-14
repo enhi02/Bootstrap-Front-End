@@ -1,0 +1,42 @@
+header{
+    height:200px; background-color: mediumblue;
+}
+nav.row {
+    height: 60px; background-color: yellow;
+}
+footer {
+    height: 60px; background-color: grey;
+}
+.row > article {
+    min-height: 300px;  background-color:rgb(165, 209, 209);
+}
+.row > aside {
+    min-height: 300px;  background-color:darkgrey;
+}
+
+header{
+    position: relative;
+}
+.shopping-mall {
+    position: absolute;
+    bottom:20px; left:10px;
+    font-variant: small-caps;
+}
+.shopping-mall>h1{
+    font-family: Impact;
+    font-size: 50px;
+    color: white;
+    letter-spacing: 0.3px;
+    text-shadow: 2px 2px 2px black;
+    border-bottom: 1px dotted grey;
+    padding-bottom:0;
+    margin: 0;
+}
+.shopping-mall>h5{
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+.jumbotron {
+    padding: 2rem 1rem;
+    background-color: rgb(34, 43, 39) linear-gradient(right, rgb(37, 56, 68), rgb(95, 95, 138));
+}

@@ -1,0 +1,52 @@
+<header class="masthead bg-primary text-white text-center h-auto">
+    <div class="container d-flex align-items-center flex-column">
+
+        <div class="row" ng-controller="dsmonhoc" >
+            <article class="col-sm-9">
+                <div class="card-columns" style="width: 1300px; margin-left:70px ; margin: right 20px; margin-top: 5px">
+                    <div class="card mt-2 text-center " ng-repeat="x in cacmonhoc | limitTo: pageSize : index">
+                        <img src="{{x.Logo}}" class="card-img-top  mt-5" id="img"
+                            height="300px" width="450px">
+
+                        <div class="card-footer font-weight-bold text-dark">
+                        {{x.Name}}
+                        </div>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation example" class="offset-5 mt-5">
+                    <ul class="pagination ">
+                        <li style="cursor: pointer;" class="page-item {{disdau}} ">
+                            <a ng-click="dau()" class="page-link bg-success pl-4 pr-4 w-50" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only"></span>
+                            </a>
+                        </li>
+                        <li style="cursor: pointer;" class="page-item {{disdau}}"><a ng-click="previous()"
+                                class="page-link bg-success pl-4 pr-4"><i class="bi bi-caret-left"></i>
+                            
+                            </a>
+                        </li>
+                        <li style="cursor: pointer;" class="page-item {{discuoi}}"><a ng-click="next()"
+                                class="page-link bg-success pl-4 pr-4"><i class="bi bi-caret-right"></i></a>
+                        </li>
+                        <li style="cursor: pointer;" class="page-item {{discuoi}}">
+                            <a class="page-link bg-success pl-4 pr-4" ng-click="cuoi()" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </article>
+            <aside class="col-sm-3" ng-include="'viewcacmon.html'" ng-controller="dsmonhoc"></aside>
+
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">FPT POLYTECHNIC-THỰC HỌC-THỰC NGHIỆP</p>
+        </div>
+
+</header>

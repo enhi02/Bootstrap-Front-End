@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+      <!--Article-->
+        <article class="col-sm-12">  
+          
+          <h2 class="text-center">5:00</h2>
+          <div class="card mt-2" ng-repeat="ch in questions|limitTo:1:start">
+            <div class="card-header">
+              <i class="fas fa-book"></i><span> Câu Hỏi môn học</span>
+              <button class="btn btn-info float-leght">Nộp bài</button>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Công ty nào đã mua lại Sun microsystem?</h5>
+              <div class="form-check">
+                <input type="radio" name="answer" value=""> Ibm <br>
+                <input type="radio" name="answer" value=""> Apple <br>
+                <input type="radio" name="answer" value=""> Yahoo <br>
+                <input type="radio" name="answer" value=""> Google <br>
+              </div>
+            </div>
+            <div class="card-footer text-muted">
+              Điểm: 1/80
+            </div>
+          </div>
+          <div class="text-center pt-3">
+            <button class="prevtab btn btn-danger" ng-click="first()">First</button>
+            <button class="prevtab btn btn-danger" ng-click="truoc()">Prev</button>
+            <button class="nexttab btn btn-info" ng-click="tiep()">Next</button>
+            <button class="nexttab btn btn-info" ng-click="last()">Last</button>
+          </div>
+      </div>
+  </div>
+
+
+  <!--  START MANAGE CONTEND  -->
+  <div class="about_content">
+    <div class="container " >
+        <div class="row ml-2 offset-lg-2 text-center wow slideInUp"  data-wow-duration="2s">                                        
+            <div class="form-group col-3 " ng-repeat = "mh in subject">
+                <img class="card-img-top" src="../logos/ADAV.jpg"  alt="#">
+                <div class="card-header"><a href="#" >{{mh.Name}}</a></div>
+            </div>
+            
+        </div>            
+    </div>
+</div>
+<!--  END MANAGE CONTEND  -->

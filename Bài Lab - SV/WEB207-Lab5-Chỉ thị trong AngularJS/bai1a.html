@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body ng-app="myapp">
+      <div ng-controller="myctr1">
+          <form >
+            <div class="col-8 m-auto">
+            <div class="card">
+                <div class="card-header text-uppercase font-weight-bold ">
+                    <i class="fas fa-list"></i>Nhập Thông Tin
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row"> 
+                            <div class="form-group col-12 ">
+                                <label for="formGroupExampleInput">Họ và Tên</label>
+                                <input ng-model="$parent.student.fullname" type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập Ho va Ten">
+                            </div>                            
+                        </div>
+                        <!---->
+                        <div class="row">                            
+                            <div class="form-group col-12 ">
+                                <label for="date">Date</label>
+                                <input ng-model="$parent.student.birthday" type="text" class="form-control" id="luong" placeholder="Nhập Date">
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="row"> 
+                            <div class="form-group col-12 ">
+                                <label for="Mark">Mark</label>
+                                <input ng-model="$parent.student.mark" type="text" class="form-control" id="thuong" placeholder="Nhập Mark">
+                            </div>                           
+                        </div>
+                       <!---->
+                        <div class="row"> 
+                            <div class="form-group col-6 ">
+                                <button ng-click="save()" ng-disabled="index==chiso" class="btn btn-lg btn-info ml-3 font-weight-bold" type="submit">
+                                    <i class="fas fa-save"></i> &nbsp; &nbsp; LƯU &nbsp; &nbsp;
+                                </button>
+                                <button ng-click="cancel()" class="btn btn-lg btn-secondary ml-3" type="reset">
+                                    <i class="fas fa-window-close"></i> HỦY
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    warming
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>
+      </div>
+      <div ng-controller="myctr2">
+        <table>
+            <tr ng-repeat="sv in students">
+                <td>{{sv.fullname}}</td>
+                <td>{{sv.birthday}}</td>
+                <td>{{sv.mark}}</td>
+                <td><button ng-click="edit($index)">Sủa</button></td>
+            </tr>
+        </table>
+        
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+  <script>
+      var app = angular.module("myapp", []);
+      app.controller("myctr1", function($scope){
+          //hàm xử lý controller 1
+          $scope.save = function(){
+            $scope.$parent.students[$scope.$parent.index] = $scope.student;
+          }
+          $scope.cancel = function(){
+            $scope.$parent.students = angular.copy($scope.$parent.students[$scope.$parent.index]);
+          }
+      })
+      app.controller("myctr2", function($scope){
+          //hàm xử lý controller 2
+          $scope.$parent.students = [
+              {fullname:"Thi Hoài", birthday:"02/02/2002", mark:8.5},
+              {fullname:"Thi Hoài", birthday:"02/02/2002", mark:8.5},
+              {fullname:"Thi Hoài", birthday:"02/02/2002", mark:8.5},
+              {fullname:"Thi Hoài", birthday:"02/02/2002", mark:8.5},
+              {fullname:"Thi Hoài", birthday:"02/02/2002", mark:8.5},
+              {fullname:"Thi Hoài", birthday:"02/02/2002", mark:8.5}
+            ];
+            $scope.edit = function(chiso){
+               //tao bien index va dat trong $scope cha
+               $scope.$parent.index = chiso;
+               $scope.student={... $scope.students[chiso]}
+               //chép dòng hiện tại của biến vào student của $scope cha
+               $scope.$parent.student = angular.copy($scope.$parent.students[chiso]);
+            }
+      })
+  </script>
+</html>

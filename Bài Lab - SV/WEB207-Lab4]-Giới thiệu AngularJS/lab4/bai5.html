@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai2 lab 7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"> </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body  ng-app="dangnhap" >
+    
+    <div class="container">
+        <form  ng-controller="hienthi" class="col-5 m-auto border border-success mt-5 shadow rounded"> 
+            <div class="bg-success m- p-2 text-center mx-m3 text-white font-weight-bold">
+                THÀNH VIÊN ĐĂNG NHẬP
+            </div>
+            <hr>
+            <div class="form-group row">
+                <div class="login__field">
+
+                     <input type="text" ng-model="u" class="login__input" placeholder="User name / Email"><br>
+                    <input type="password" ng-model="p" class="login__input" placeholder="Password">
+                </div>
+                <input style="margin-left: -100px;" type="checkbox"><a>Ghi nhớ</a>
+                <button class="button login__submit">
+                    <span class="button__text" ng-click="dn()">Đăng Nhập</span>
+                </button>
+            </div>
+        </form>
+    </div>
+        
+    
+</body>
+</html>
+<script src="listsv.js"></script>
+<script>
+     app= angular.module("dangnhap",[]);
+    app.controller("hienthi",xuly);
+    function xuly($scope)
+    {
+        $scope.dn=function()
+        {
+            var u=$scope.u;
+            var p=$scope.p
+           var tc=false;
+           var motsv;
+           for(var i=0;i<listsv.length;i++)
+           {
+               motsv=listsv[i];
+               if(u==motsv.username && p==motsv.password)
+               {
+                   tc=true;
+                   break;
+               }
+           }
+           if(tc)
+           {
+               sessionStorage.setItem("username",motsv.username);
+               sessionStorage.setItem("hoten",motsv.fullname);
+               sessionStorage.setItem("email",motsv.email);
+               document.location="index.html"
+               alert("Đăng Nhập ok !")
+           }
+        }
+    }
+</script>
+   <style>
+       .container
+       {
+           margin-top: 40px;
+       }
+       input{
+           margin-left: 40px;
+           margin-top: 15px;width: 300px;       }
+           a{
+            margin-left: -130px;
+            margin-top: 10px;
+           }
+           button{
+               margin-top: 40px;
+           }
+   </style>

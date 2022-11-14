@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body ng-app="myapp" ng-controller="myctrl"> 
+    <div class="container">
+        <header class="row bg-dark p-2">
+            <h1 class="text-white h4">QUẢN TRỊ THỂ LOẠI</h1>
+        </header>
+        <div class="row" style="height:890px">
+            <div class="col-8 bg-white h-100">
+                <table class="table table-bordered table-hover">
+                            <thead class="text-center bg-default">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên TL</th>
+                                    <th>Thứ tự</th>
+                                    <th>Tên KD</th>
+                                    <th>Số tín</th>
+                                    <th>Phụ trách</th>
+                                    <th>Ẩn hiện</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="tl in listtheloai">
+                                    <td>{{tl.idTL}}</td>
+                                    <td>{{tl.TenTL|uppercase}}</td>
+                                    <td>{{tl.ThuTu}}</td>
+                                    <td>{{tl.TenKD == "" ? "Chưa có": tl.TenKD}}</td>
+                                    <td>{{tl.SoTin}}</td>
+                                    <td>{{tl.un == ""?"Chưa có": tl.un}}</td>
+                                    <td>
+                                        <span ng-if="tl.AnHien==0">Đang Ẩn</span>
+                                        <span ng-if="tl.AnHien==1">Đang Hiện</span>
+                                    </td>
+                                    <td><button ng-click="chonTL($index)" class="btn btn-primary btn-sm"> > </button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+            </div>
+            <div class="col-4 bg-success h-100">
+                <h4>Chỉnh Thể Loại</h4>
+                <form class="row" name="frmthemTL">
+                    <div class="form-group col-12">
+                        <h6>Tên thể loại</h6>
+                        <input name="tentl" type="text" class="form-control" ng-model="tlhientai.TenTL" required ng-minlength="3" ng-maxlength="20">
+                        <div ng-show="frmthemTL.tentl.$invalid" class="badge badge-danger font-italic">
+                            Nhập tên thể loại từ 3 đến 25 kí tự
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <h6>Thứ tự</h6>
+                        <input name="thutu" required ng-min="1" ng-max="23" type="number" class="form-control" ng-model="tlhientai.ThuTu">
+                        <div ng-show="frmthemTL.thutu.$invalid" class="badge badge-danger font-italic">
+                            Nhập thứ tự từ 1 đến 23
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <h6>Tên TL KD</h6>
+                        <input name="tenkd" required ng-pattern="/^[a-zA-Z0-9-]*$/" type="text" class="form-control" ng-model="tlhientai.TenKD">
+                        <div ng-show="frmthemTL.tenkd.$invalid" class="badge badge-danger font-italic">
+                            Nhập tên thể loại không dấu
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <h6>Số tín</h6>
+                        <input name="sotin" required min="1" type="number" class="form-control" ng-model="tlhientai.SoTin">
+                        <div ng-show="frmthemTL.sotin.$invalid" class="badge badge-danger font-italic">
+                            Nhập số tín từ 1
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <div class="form-group col-12">
+                            <div class="row">
+                                <div class="col-4">
+                                    <h6>Ẩn hiện:</h6> 
+                                </div>
+                                <div class="form-group col-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                          Hiện
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="form-group col-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                                        <label class="form-check-label" for="exampleRadios1">
+                                          Ẩn
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <h6>Người phụ trách</h6>
+                        <select name="username" class="form-control" id="" ng-model="tlhientai.un">
+                            <option value="{{u.un}}" ng-repeat="u in listusername">{{u.hoten}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-12">
+                        <div class="row">
+                            <div class="col-3">
+                                <button ng-click="save()" class="btn btn-warning" ng-disable="frmthemTL.$pristine">Lưu</button>
+                            </div>
+                            <div class="col-3">
+                                <button ng-click="cancel()" class="btn btn-danger">Hủy</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+<!-- <script src="theloai.js"></script>
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", function($scope){
+        $scope.index = 0;
+        $scope.listheloai = theloai;
+        $scope.chonTL=function(chiso){
+        $scope.index=chiso;
+        $scope.tlhientai = angular.copy($scope.listheloai[chiso]);
+        console.log($scope.tlhientai);
+        $scope.listusername=[
+     {un:"dodatcao", hoten: "Đỗ đạt Cao"},
+     {un:"huahoai", hoten:"Hứa Hoài"},
+     {un:"thihoai", hoten: "Thi Hoài"},
+     {un:"phamkyluat", hoten:"Phạm Kỹ Luật"}
+    ];    
+    }
+    $scope.save = function(){
+        $scope.listtheloai[$scope.index] = $scope.tlhientai;
+    }
+    $scope.cancel = function(){
+        $scope.tlhientai = $scope.listtheloai[$scope.index];
+    }    
+    })
+</script> -->
+
+<script src="theloai.js"></script>
+  <script>
+      var app = angular.module("myapp",[]);
+      app.controller("myctrl", function($scope){
+          $scope.index = 0;
+          $scope.listtheloai = theloai;
+          $scope.chonTL = function(index){
+            $scope.index = index;
+            $scope.tlhientai = angular.copy($scope.listtheloai[index]);
+          };
+          $scope.listusername=[
+            {un:"dodatcao", hoten: "Đỗ đạt Cao"},
+            {un:"huahoai", hoten:"Hứa Hoài"},
+            {un:"thihoai", hoten: "Thi Hoài"},
+            {un:"phamkyluat", hoten:"Phạm Kỹ Luật"}
+          ];
+          $scope.save = function(){
+              $scope.listtheloai[$scope.index] = $scope.tlhientai;
+          }
+          $scope.cancel = function(){
+              $scope.tlhientai = $scope.listtheloai[$scope.index];
+          }
+      })
+  </script>

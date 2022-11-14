@@ -1,0 +1,122 @@
+<!doctype html>
+    <html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="col-8 m-auto">
+        <ul class="nav nav-tabs text-uppercase font-weight-bold" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" type="a" role="tab" aria-controls="home" aria-selected="true"><i class="fas fa-save"></i> Cập Nhật</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="index123.html" type="a" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-list"></i> Danh Sách</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="card">
+                <div class="card-header text-uppercase font-weight-bold ">
+                    <i class="fas fa-list"></i>Nhập lương Tháng 12
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row"> 
+                            <div class="form-group col-6 ">
+                                <label for="formGroupExampleInput">Mã Nhân Viên</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập Mã Nhân Viên">
+                            </div>
+                            <div class="form-group col-6 ">
+                                <label for="formGroupExampleInput2">Họ và Tên</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nhập Họ và Tên">
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="row"> 
+                            <div class="form-group col-6 ">
+                                <select class="form-control" id="cld" placeholder="Chọn Câu Lạc Bộ">
+                                    <option value="chọn cld">Chọn Câu Lạc Bộ</option>
+                                    <option value="dn">Đà Nẵng</option>
+                                    <option value="SG">Sài Gòn</option>
+                                    <option value="hn">Hà Nội</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6 ">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">VNĐ</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="luong" placeholder="Nhập Lương Cầu Thủ">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="row">
+                            <div class="form-group col-6 ">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">VNĐ</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="pc" placeholder="Nhập Phụ Cấp (nếu có)">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">0.00</span>
+                                    </div>
+                                </div>  
+                            </div> 
+                            <div class="form-group col-6 ">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">VNĐ</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="thuong" placeholder="Nhập Tiền Thưởng">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">0.00</span>
+                                    </div>
+                                </div>  
+                            </div>                                    
+                        </div>                                         
+                        <!---->
+                        <div class="row"> 
+                            <div class="form-group col-12 ">
+                                <label for="gc">Ghi Chú</label>
+                                <textarea type="text" class="form-control" id="gc" placeholder="Nhập Ghi Chú (nếu có)" row="3"></textarea>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="row"> 
+                            <div class="form-group col-6 ">
+                                <button class="btn btn-lg btn-info ml-3 font-weight-bold" type="submit">
+                                    <i class="fas fa-save"></i> &nbsp; &nbsp; LƯU &nbsp; &nbsp;
+                                </button>
+                                <button class="btn btn-lg btn-secondary ml-3" type="reset">
+                                    <i class="fas fa-window-close"></i> HỦY
+                                </button>
+                            </div>
+                        </div>
+                        <!---->
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    Vui lòng nhập thông tin lương của cầu thủ
+                </div>
+            </div></div>
+            <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab"><table class="table table-bordered table-hover">
+                <thead class="text-center bg-warning">                 
+            </div>       
+          </div>
+    </div>     
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

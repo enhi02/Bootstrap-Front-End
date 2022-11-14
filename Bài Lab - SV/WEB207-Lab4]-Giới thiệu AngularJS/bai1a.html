@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tiêu đề trang</title>
+    <meta charset="utf-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="myctrl" class="col-sm-4">
+        <h4>{{titleapp}}</h4> <hr>
+        <p>Tên Đăng Nhập : {{sv.username}}</p><hr>
+        <p>Họ Tên : {{sv.fullname}}</p><hr>
+        <p>Email : {{sv.email}}</p><hr>
+        <p>Giới Tính: {{sv.gender}}</p><hr>
+        <p>Ngày Sinh: {{sv.birthday}}</p><hr>
+        <p>Học Phí : {{sv.schoolfee}}</p><hr>
+        <p>Điểm : {{sv.mark}}</p><hr>
+    </div>
+</body>
+
+<script>
+  var app = angular.module("myapp",[]);
+  app.controller("myctrl",myfunc);
+  function myfunc($scope){
+      //code tính toán và gán giá trị biến trong angularJS
+      $scope.titleapp="THÔNG TIN SINH VIÊN";
+      $scope.sv = {
+          username : "teonv",
+          password : "iloveu",
+          fullname : "hoachoida",
+          email : "hoachoida@gmail.com",
+          gender : "true",
+          birthday : "22/02/2022",
+          schoolfee : "1900000",
+          mark : "0"
+
+      }
+  }
+</script>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>

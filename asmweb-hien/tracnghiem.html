@@ -1,0 +1,64 @@
+<header class="masthead pt-5 h-auto pb-5">
+    <div class="row pt-5 mt-5">
+        <article class="col-sm-8 me-3 pe-5 text-danger border-end ps-5 mt-4" ng-init="myda">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <div class="row justify-content-between">
+                        <i class="bi bi-list text-white fs-5 col-lg-10"><strong class="fs-5">{{name}}</strong></i>
+                        <i class="col-lg-2 text-black fw-bold mt-1"><i class="bi bi-alarm me-1 text-black"></i>{{ countDown * 1000 | date:'mm:ss' }}</i>
+                    </div>
+                </div>
+                <div ng-repeat="x in caccauhoi | limitTo: pageSize : start" class="card-body  bg-light mt-2">
+                    <h5 class="card-title">{{x.Text}}<span
+                            class="badge badge-pill float-end bg-indigo bg-success">{{start+1}}/{{maxtn}}</span></h5>
+                    <hr>
+                    <p class="card-text">
+                    <div ng-repeat="pa in x.Answers" class="form-check">
+                        <input class="form-check-input" ng-click="ktketqua(pa.Id , x.AnswerId)"  ng-model="da" type="radio" style="margin-top: 31px;" name="pa" value="{{pa.Id}}" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                             {{pa.Text}}
+                        </label>
+                    </div>
+
+                    </p>
+
+                </div>
+                <div class="card-footer text-success bg-primary ps-5"> <strong class="float-end pe-5">
+                    <a id="xong" href="#!hoanthanh/{{id}}/{{name}}" ng-click="submit()" class="btn btn-warning p-2 ps-4 pe-4">Hoàn thành</a>
+                </strong>
+                </div>
+            </div>
+            <nav aria-label="Page navigation example" class="offset-5 mt-5">
+                <ul class="pagination ">
+                    <li style="cursor: pointer;" class="page-item {{disdau}}">
+                        <a ng-click="dau()" class="page-link bg-dark ps-4 pe-4" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li style="cursor: pointer;" class="page-item {{disdau}}"><a ng-click="previous()"  class="page-link bg-dark ps-4 pe-4"><i class="bi bi-caret-left"></i></a>
+                    </li>
+                    <li style="cursor: pointer;" class="page-item {{discuoi}}"><a ng-click="next()" class="page-link bg-dark ps-4 pe-4"><i class="bi bi-caret-right"></i></a>
+                    </li>
+                    <li style="cursor: pointer;" class="page-item {{discuoi}}">
+                        <a class="page-link bg-dark ps-4 pe-4" ng-click="cuoi()" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+
+        </article>
+        <aside ng-include="'viewcacmon.html'" ng-controller="dsmonhoc" class="col-md-3 ms-5 mt-4">
+
+        </aside>
+        <div class="fb-like ms-4 mt-5" data-colorscheme="dark"
+            data-href="https://www.facebook.com/P%E1%BB%9D-Rom-113125644156959" data-width="" data-layout="standard"
+            data-action="like" data-size="large" data-share="true"></div>
+
+
+    </div>
+
+</header>
